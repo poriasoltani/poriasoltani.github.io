@@ -1,12 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Pooria">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Play</title>
+    <style>
+        #body {
+            background: linear-gradient(to right, rgb(60, 110, 250), rgb(250, 76, 76));
+        }
+
+        #showDice {
+            color: aliceblue;
+            text-align: center;
+            font-size: 70px;
+        }
+
+        button[type=submit] {
+            background-color: rgb(240, 240, 240);
+            border-radius: 10px;
+            border-color: rgb(221, 221, 221);
+            color: rgb(0, 0, 0);
+            padding: 15px 30px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        button[type=submit]:hover {
+            background-color: unset;
+            border: 1px solid rgb(39, 39, 39);
+            transition-duration: .2s;
+            transition-timing-function: ease;
+        }
+
+        #btnn {
+            padding: 8% 38% 4% 45%;
+        }
+
+        #image {
+            padding: 5% 0% 0% 35%;
+        }
+    </style>
 </head>
-<body>
-    <h1>hello</h1>
+
+<body id="body">
+    <!-- for 926 px * 968 px screen -->
+    <div>
+        <div>
+            <h1 id="showDice">Let's Play!</h1>
+        </div>
+        <div>
+            <img id="image" />
+        </div>
+        <div id="btnn">
+            <button id="btn" type="submit" onClick="refreshPage()">TRY AGAIN!</button>
+        </div>
+    </div>
+    <script>
+        let getRandomNumber = Math.floor(Math.random() * 6) + 1;
+
+        let diceimg = 'layout/assets/dice' + getRandomNumber + '.png';
+
+        document.querySelectorAll('img')[0].setAttribute('src', diceimg)
+
+        function refreshPage() {
+            window.location.reload();
+        }
+    </script>
 </body>
+
 </html>
